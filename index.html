@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de Sugestões</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Envie sua Sugestão</h1>
+    <form id="suggestionForm">
+      <input type="text" id="name" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu email" required>
+      <textarea id="suggestion" placeholder="Sua sugestão" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="success" id="successMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('suggestionForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const suggestion = document.getElementById('suggestion').value;
+
+      // Aqui você pode enviar os dados para um servidor ou banco
+      console.log({ name, email, suggestion });
+
+      successMessage.textContent = 'Sugestão enviada com sucesso!';
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
